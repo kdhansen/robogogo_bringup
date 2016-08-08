@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<launch>
+    <node pkg="arbotix_commander2" type="arbotix_commander2_node" name="commander2_joy" output="screen">
+		<param name="serial_port" value="/dev/ttyUSB0" />
+	</node>
+
+    <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
+        <rosparam command="load" file="$(find robogogo_bringup)/config/arbotix-commander-2.config.yaml" />
+    </node>
+</launch>
